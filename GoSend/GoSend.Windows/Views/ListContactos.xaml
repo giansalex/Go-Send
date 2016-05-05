@@ -1,0 +1,85 @@
+﻿<Page
+    x:Class="GoSend.Views.ListContactos"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GoSend.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cv="using:IMM.Manager.Converters"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <cv:CvMessages x:Key="CvMsg"/>
+        <cv:CvImagePerfil x:Key="CvImagen"/>
+        <MenuFlyout x:Key="FlyoutContact">
+            <MenuFlyoutItem Text="Relatar" Tag="1" Click="MenuFlyoutItem_Click"/>
+            <MenuFlyoutItem Text="Info" Tag="2" Click="MenuFlyoutItem_Click"/>
+        </MenuFlyout>
+        <DataTemplate x:Key="TemplateContacto">
+            <Grid Height="270" Width="270"
+                  Background="Aquamarine"
+                  HorizontalAlignment="Left"
+                  FlyoutBase.AttachedFlyout="{StaticResource FlyoutContact}"
+                  Tapped="Click_Item"
+                  RightTapped="RightClick_Item">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Source="{Binding Id,Converter={StaticResource CvImagen}}" />
+                <StackPanel Grid.Row="1" 
+                        Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
+                    <TextBlock
+                    Text="{Binding Nombre,Mode=OneWay}"
+                    Margin="6,0,2,2"
+                    Style="{ThemeResource SubheaderTextBlockStyle}"
+                    FontWeight="SemiBold"/>
+                    <TextBlock 
+                    Style="{Binding LastMsg,Mode=OneWay, Converter={StaticResource CvMsg}}"
+                    Margin="6,0,2,2"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        <Style x:Key="StyleGridView" TargetType="GridView">
+            <Setter Property="AutomationProperties.AutomationId" Value="ItemsGridView"/>
+            <Setter Property="AutomationProperties.Name" Value="Items"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Enabled"/>
+            <Setter Property="ScrollViewer.VerticalScrollMode" Value="Disabled"/>
+            <Setter Property="ScrollViewer.ZoomMode" Value="Disabled"/>
+            <Setter Property="IsSwipeEnabled" Value="False"/>
+            <Setter Property="SelectionMode" Value="None"/>
+            <Setter Property="ItemTemplate" Value="{StaticResource TemplateContacto}"/>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Background="DarkCyan">
+            <TextBlock Style="{ThemeResource HeaderTextBlockStyle}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontWeight="SemiBold">
+                <TextBlock.Transitions>
+                    <TransitionCollection>
+                        <EdgeUIThemeTransition/>
+                    </TransitionCollection>
+                </TextBlock.Transitions>
+                Chats
+            </TextBlock>
+        </Border>
+        <Border Grid.Row="1"
+                Background="WhiteSmoke">
+            <GridView x:Name="ListCont" Style="{StaticResource StyleGridView}"/>
+        </Border>
+    </Grid>
+</Page>

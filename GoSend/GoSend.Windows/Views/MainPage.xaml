@@ -1,0 +1,94 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="GoSend.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GoSend.Views"
+    xmlns:common="using:GoSend.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style TargetType="ListViewItem">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <ListViewItemPresenter
+                            SelectedBackground="#FF185757"
+                            SelectedForeground="LightCyan"
+                            Padding="10"
+                            SelectedPointerOverBackground="DarkCyan"
+                            />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="SylleListView" TargetType="ListView">
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.VerticalScrollMode" Value="Auto"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="SelectionMode" Value="Single"/>
+            <Setter Property="Header">
+                <Setter.Value>
+                    <Line X2="200" Y1="5" Y2="5" StrokeThickness="2" Stroke="LightGray"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MaxWidth="60"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Back button and page title -->
+        <Grid Background="#FF134040" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="117"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="pageTitle" Grid.Column="1" 
+                       TextWrapping="Wrap" FontWeight="SemiBold"
+                       Style="{ThemeResource HeaderTextBlockStyle}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center">
+                G <Span Foreground="Crimson">S</Span>
+            </TextBlock>
+
+            <ListView x:Name="ListOpc" Style="{StaticResource SylleListView}" SelectionChanged="ListOpc_SelectionChanged">
+                <ListViewItem IsSelected="True" ToolTipService.ToolTip="Chats">
+                    <Border>
+                        <SymbolIcon Symbol="Message"/>
+                    </Border>
+                </ListViewItem>
+                <ListViewItem ToolTipService.ToolTip="Contactos">
+                    <Border>
+                        <SymbolIcon Symbol="People"/>
+                    </Border>
+                </ListViewItem>
+                <ListViewItem ToolTipService.ToolTip="Perfil">
+                    <Border>
+                        <SymbolIcon Symbol="Contact"/>
+                    </Border>
+                </ListViewItem>
+                <ListViewItem ToolTipService.ToolTip="Acerca de">
+                    <Border>
+                        <SymbolIcon Symbol="Help"/>
+                    </Border>
+                </ListViewItem>
+            </ListView>
+        </Grid>
+
+        <Frame x:Name="MainFrame"
+               Grid.Column="1"/>
+
+    </Grid>
+</Page>

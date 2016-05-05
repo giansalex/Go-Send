@@ -1,0 +1,38 @@
+﻿<UserControl
+    x:Class="IMM.Controls.RecordControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IMM.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="150"
+    d:DesignWidth="120">
+    <Border CornerRadius="20"
+            BorderBrush="DarkGray"
+            BorderThickness="2"
+            Background="{ThemeResource FlyoutBackgroundThemeBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <AppBarButton Icon="Microphone" 
+                          IsCompact="True"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          Click="Play_Click"/>
+            <SymbolIcon Symbol="Clear"
+                        Margin="0,3,3,0"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Tapped="Close_Click"/>
+            <TextBlock 
+                       x:Name="TextTime" Margin="0,3"
+                       Text="01:12" Grid.Row="1"
+                       Foreground="Crimson"
+                       HorizontalAlignment="Center"
+                       Style="{ThemeResource TitleTextBlockStyle}"/>
+        </Grid>
+    </Border>
+</UserControl>

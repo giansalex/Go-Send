@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="e002f6df-a360-4b55-999f-f3f27d648102" Publisher="CN=Giansalex" Version="1.1.0.0" />
+  <Properties>
+    <DisplayName>GoSend.Windows</DisplayName>
+    <PublisherDisplayName>Giansalex</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="GoSend.Windows.App">
+      <m2:VisualElements DisplayName="GoSend.Windows" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="GoSend.Windows" ForegroundText="light" BackgroundColor="#FF00FF" ToastCapable="true">
+        <m2:SplashScreen Image="Assets\SplashScreen.png" />
+      </m2:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <Capability Name="picturesLibrary" />
+    <Capability Name="removableStorage" />
+    <Capability Name="musicLibrary" />
+    <DeviceCapability Name="microphone" />
+  </Capabilities>
+</Package>

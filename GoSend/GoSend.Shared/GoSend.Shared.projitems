@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>219a918f-f225-4435-9d53-644d847e767c</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>GoSend</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ObservableDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\RecordControl.xaml.cs">
+      <DependentUpon>RecordControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DB\Helper\DatabaseHelperClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DB\Model\Contacto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DB\Model\Message.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DB\Sqlite\SQLite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DB\Sqlite\SQLiteAsync.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\Converters\CvFecha.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\Converters\CvImagePerfil.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\Converters\CvMessages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\Converters\CvStateMsg.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\IShowMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\ManagerGo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\Media\RecordProcess.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\ContactoView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\MessageContentTemp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\MessageTemplate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Notify\ToastGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)server\ConexionServer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)server\DownLoadFiles.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)server\Model\MessageServer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)server\ProcessFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)server\ThreadMessage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)res_share\fodo.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)res_share\IcoHombre.png" />
+    <Content Include="$(MSBuildThisFileDirectory)res_share\IcoMujer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)viewshared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\RecordControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+</Project>

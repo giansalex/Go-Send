@@ -1,0 +1,107 @@
+﻿<Page
+    x:Class="GoSend.Views.Registro"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GoSend.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Border Background="DarkCyan">
+            <TextBlock Style="{ThemeResource HeaderTextBlockStyle}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontWeight="ExtraBold">
+                <TextBlock.Transitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition/>
+                        <EdgeUIThemeTransition Edge="Bottom"/>
+                    </TransitionCollection>
+                </TextBlock.Transitions>
+                    Go<Span Foreground="Crimson">Send</Span>
+            </TextBlock>
+        </Border>
+        <Border Grid.Row="1" Padding="10"
+              Background="{ThemeResource FlipViewButtonPressedBackgroundThemeBrush}">
+            <Grid Width="460"
+                  Background="White"
+                  RequestedTheme="Light">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Background="DodgerBlue">
+                    <TextBlock Text="Registrate" Style="{ThemeResource SubheaderTextBlockStyle}"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="ExtraBold"
+                               FontFamily="Candara"
+                               FontSize="40"/>
+                </Border>
+                <StackPanel
+                    Grid.Row="1"
+                    VerticalAlignment="Stretch" 
+                    HorizontalAlignment="Stretch"
+                    Margin="10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="txtName" 
+                                 Header="Nombre"
+                                 Margin="0,0,5,0"
+                                 TabIndex="1"/>
+                        <TextBox x:Name="txtApellido" Grid.Column="1" 
+                                 Header="Apellido"
+                                 Margin="5,0,0,0"
+                                 TabIndex="2"/>                        
+                    </Grid>
+                    <TextBox x:Name="email" Header="E-mail" InputScope="EmailSmtpAddress"
+                             TabIndex="3"/>
+                    <TextBox x:Name="txtPhone" Header="Phone" InputScope="Number" 
+                             VerticalAlignment="Stretch"
+                             KeyDown="Phone_Click"
+                             TabIndex="4"/>
+                    <PasswordBox x:Name="password" Header="Password"
+                                 TabIndex="5"/>
+                    <DatePicker x:Name="DateNac"  Header="Nacimiento"
+                                TabIndex="6" IsTabStop="True"/>
+                    <TextBlock Text="Sexo" Style="{ThemeResource BodyTextBlockStyle}"/>
+                    <Grid Margin="0,8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton x:Name="radioFem" 
+                                     Content="Mujer"
+                                     IsChecked="True"
+                                     TabIndex="7"/>
+                        <RadioButton x:Name="radioMas" 
+                                     Grid.Column="1"
+                                     Content="Hombre"
+                                     TabIndex="8"/>
+                    </Grid> 
+                    <TextBlock x:Name="txtError" Style="{ThemeResource BodyTextBlockStyle}" Foreground="Crimson" Margin="0,10"/>
+                </StackPanel>
+                <AppBarButton Grid.Row="1"
+                              TabIndex="9"
+                              Icon="Forward"
+                              VerticalAlignment="Bottom"
+                              HorizontalAlignment="Center"
+                              Click="buttonRegister_Click"/>
+                <ProgressRing x:Name="LoadRing" 
+                              Grid.RowSpan="2"
+                              Height="80"
+                              Background="{x:Null}"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
