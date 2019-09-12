@@ -198,6 +198,9 @@
         * Row 1 contains the rest of the page layout
     -->
     <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="ms-appx:///res_share/fodo.jpg"/>
+        </Grid.Background>
         <!--<Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="ms-appx:///res_share/fodo.jpg"/>
         </Grid.Background>-->
